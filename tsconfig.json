@@ -1,0 +1,14 @@
+﻿{
+    "compilerOptions": {
+        //"module": "es6",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true
+    },
+    "files": [
+        "shared.ts",
+        "DickAndJane1.ts",
+        "DickAndJane2.ts"
+    ]
+}

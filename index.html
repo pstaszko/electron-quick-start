@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
-
-  <script>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Dick and Jane</title>
+  <link rel="stylesheet" href="app.css" type="text/css" />
+</head>
+<body>
+  <style>
+    .inline {
+      display: inline-block;
+    }
+  </style>
+  <h1 data-bind="text: Name" class="inline"></h1>
+  <a class="inline" onclick="document.location.href = document.location.href.replace('#','');return false" href="#">Restart Story</a>
+  <!--<a class="inline" href="" data-bind="click: function(){ Reset() }">Reset</a>
+  <div class="inline" href="" data-bind="click: function(){ Reset() }">Reset2</div>-->
+  <script src="Scripts/jquery-3.1.0.js"></script>
+  <script src="Scripts/knockout-3.4.0.js"></script>
+  <script src="shared.js"></script>
+  <script src="DickAndJane1.js"></script>
+  <hr />
+  <div id="scene" data-bind="text: ActiveScene().GetDescription()"></div>
+  <hr />
+  <ul data-bind="foreach: ActiveScene().Options()">
+    <li><a href="#" data-bind="text: Description, click: function(data,event){Select()}"></a></li>
+  </ul>
+   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
   </script>
+  <script>
+    ko.applyBindings(story);
+  </script>
+</body>
 </html>
